@@ -6,6 +6,12 @@ const Tables = ({ incomes }) => {
         return ((incomes.reduce((ac , currentIncome) => ac + currentIncome.income , 0) / incomes.length).toFixed(2))
     }
 
+    const beersMapped = incomes.map((income) => (
+        <tr>
+            <td>{income.brand}</td>
+            <td>${income.income}</td>
+        </tr>
+    ));
 
     return (
         <>
@@ -18,12 +24,7 @@ const Tables = ({ incomes }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {incomes.map((income) => (
-                            <tr>
-                                <td>{income.brand}</td>
-                                <td>${income.income}</td>
-                            </tr>
-                        ))}
+                        {beersMapped}
                     </tbody>
                 </table>
             </div>
