@@ -10,11 +10,16 @@ function App() {
     setTask([...tasks ,{name: name}])
   }
 
+  const handleDeleteTask = (index) => {
+    const task = tasks.filter((_ , i) => i !== index);
+    setTask(task)
+  }
+
   return (
     <>
       <h1>App de Tareas</h1>
       <br />
-      <List tasks={tasks}/>
+      <List tasks={tasks} Delete={handleDeleteTask}/>
       <NewTask handleNewTask = {handleNewTask}/>
     </>
   )
